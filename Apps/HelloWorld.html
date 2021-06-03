@@ -28,7 +28,15 @@
   <body>
 <div id="cesiumContainer"></div>
 <script>
-var viewer = new Cesium.Viewer('cesiumContainer');　
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    imageryProvider: new Cesium.createOpenStreetMapImageryProvider({
+      url: 'https://cyberjapandata.gsi.go.jp/xyz/std/',
+      credit: new Cesium.Credit('地理院タイル', '', 'https://maps.gsi.go.jp/development/ichiran.html')
+    }),
+    baseLayerPicker: false,
+    geocoder: false,
+    homeButton: false
+  });　
 
 var point = viewer.entities.add({
       name:"福井市", //レイヤ名
